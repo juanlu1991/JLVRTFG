@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">TFG - ChampionshipLeague</string>
     <string name="anyadirEquipo">New Team</string>
-    <string name="ayuda1">Select "Manage Leage" to access the information of teams, and up and down of categori teams</string>
     <string name="clasificacion">Scored</string>
     <string name="bienvenida">Welcome to Championship Leaguqe</string>
     <string name="button_guardar">Saved</string>
@@ -25,14 +24,45 @@
     <string name="equipo_eliminar_titulo">Down Team</string>
     <string name="gestionEquipo">Information of Team</string>
     <string name="gestionLiga">Manage League</string>
-    <string name="hello_world"></string>
+
     <string name="infoEquipo">Information of Team</string>
     <string name="jornada">New Journal</string>
     <string name="jornadas">Select Journal : </string>
-    <string name="label_empatados"></string>
+
     <string name="label_equipo">Team</string>
-    <string name="label_gContra"></string>
+
     <string name="volver">Back</string>
     <string name="str_buttonIdioma">Change Language</string>
     <string name="desconectar">Log Out</string>
+    <string name="ButtonNuevaL">To Saved</string>
+    <string name="ButtonNuevoG">Add Scored</string>
+    <string name="GolesMArcados">Scored</string>
+    <string name="NombreNuevaLiga">Name League</string>
+    <string name="NuevaFecha">New Jornada</string>
+    <string name="NuevaLiga">New League</string>
+    <string name="NuevoPartido">New match</string>
+    <string name="action_settings1">To saved</string>
+    <string name="anyadirRes">Add</string>
+    <string name="ayuda1">To Login and access all the options of the app, you must log in with your google account</string>
+    <string name="ayuda2">Once logged in correctly, from the results screen you can keep track of the matches played and add new matches</string>
+    <string name="ayuda3">A third section is that of scorers where it shows a list with the scorers of the championship as well as options to add new scorers.</string>
+    <string name="ayuda4">From the classification section will show the classification with the points based on the results added</string>
+    <string name="buttonActualizar">Update datas</string>
+    <string name="buttonOrdenar">To sort</string>
+    <string name="datosconerror">Wrong format data, check and try again</string>
+    <string name="datossinerror">Data Added Correctly</string>
+    <string name="equipoLocal">Local Team</string>
+    <string name="equipoVist">Visit Team</string>
+    <string name="goleadores">Scored</string>
+    <string name="nombreJG">Player Name</string>
+    <string name="resltadoP">Scored</string>
+    <string name="resultados">Results</string>
+    <string name="sign_out">Sing Out</string>
+    <string name="title_activity_anyadir_equipo">New Team</string>
+    <string name="title_activity_ayuda">help</string>
+    <string name="title_activity_clasificacion">Clasificattion</string>
+    <string name="title_activity_equipos">Teams</string>
+    <string name="title_activity_resultados">Resulst</string>
+    <string name="liga">Goal Scorer</string>
+    <string name="Goles">Scored</string>
 </resources>

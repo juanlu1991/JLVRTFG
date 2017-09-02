@@ -4,22 +4,44 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.jlvr.juanluis.tfg_championshipleague.ClasficacionFireBase.ClasificacionObjeto;
+import com.jlvr.juanluis.tfg_championshipleague.ClasficacionFireBase.clasificacionFB;
+import com.jlvr.juanluis.tfg_championshipleague.GoleadoresFireBase.goleadoresFB;
 import com.jlvr.juanluis.tfg_championshipleague.ResultadosFireBase.ResultadoFB;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.jlvr.juanluis.tfg_championshipleague.ResultadosFireBase.resultadosFB;
 
 public class NuevoPartido extends AppCompatActivity {
-private Button buttonNP, buttonGuardar;
-    private EditText fecha,equipoLocal,equipoVisitante,golesL,golesV;
+
+
+    private Button buttonNP, buttonGuardar;
+
+    private EditText fecha, equipoLocal, equipoVisitante, golesL, golesV;
+
+    private ClasificacionObjeto equipoStored, equipoV;
+
+
+    private Integer puntosL;
+    private Integer puntosV;
+    private Integer pgl;
+    private Integer pgv;
+    private Integer pel;
+    private Integer pev;
+    private Integer ppl;
+    private Integer ppv;
+    private Integer pjl;
+    private Integer pjv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +49,7 @@ private Button buttonNP, buttonGuardar;
         setContentView(R.layout.activity_nuevo_partido);
 
         //botonOAnyadi
-        buttonGuardar = (Button)findViewById(R.id.button2);
+        buttonGuardar = (Button) findViewById(R.id.button2);
         //Implementamos el evento click del botón
         buttonGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,55 +61,172 @@ private Button buttonNP, buttonGuardar;
                 golesL = (EditText) findViewById(R.id.resLocal);
                 golesV = (EditText) findViewById(R.id.resVisit);
 
-
                 String fechaN = String.valueOf(fecha.getText());
-                String equiL = String.valueOf(equipoLocal.getText());
-                String equiV = String.valueOf(equipoVisitante.getText());
-                //        Long gL = Long.parseLong(String.valueOf(golesL.getText()));
-                //              Long gV = Long.parseLong(String.valueOf(golesV));
+                final String equiL = String.valueOf(equipoLocal.getText());
+                final String equiV = String.valueOf(equipoVisitante.getText());
+                final String gL = String.valueOf(golesL.getText());
+                String gV = String.valueOf(golesV.getText());
 
-                List<String> s = new ArrayList<String>();
+                if (fechaN.equals(" ") ||
+                        equiL.equals("Name") ||
+                        equiV.equals("Name")
+                        || gL.equals(" ") || gV.equals(" ")) {
 
-                int i = Math.max(10,1000);
+                    Toast.makeText(getApplicationContext(),
+                            R.string.datosconerror, Toast.LENGTH_LONG).show();
+                    return;
 
-                Query consulta =
-                        FirebaseDatabase.getInstance().getReference()
-                                .child("Liga").child("Resultados");
-                String partido = new String() + "i";
+                } else {
 
+                    //Añadir partido nuevo en Resultados
 
+                    final DatabaseReference resNuevo =
+                            FirebaseDatabase.getInstance().getReference().child("Liga")
+                                    .child("Resultados");
 
-                Log.i(String.valueOf(i),"--------------------------------------------------------------");
-                    partido= consulta.toString();
-                Log.i(String.valueOf(partido),"--------------------------------------------------------------");
-                //Añadir partido nuevo
-
-
-                DatabaseReference resNuevo =
-                        FirebaseDatabase.getInstance().getReference().child("Liga")
-                                .child("Resultados");
-                ResultadoFB res =
-                        new ResultadoFB(equiL,3L, equiV, 2L, fechaN);
+                    final Long golesLocal, golesVisitante;
+                    golesLocal = Long.valueOf(gL);
+                    golesVisitante = Long.valueOf(gV);
 
 
-                resNuevo.child(partido).setValue(res);
-                ////
+                    ResultadoFB res =
+                            new ResultadoFB(equiL, golesLocal, equiV, golesVisitante, fechaN);
 
-                ///Añadir en clasificacion
-                DatabaseReference resNuevo2 =
-                        FirebaseDatabase.getInstance().getReference().child("Liga")
-                                .child("Clasificacion");
+                    String titulopartido = "Resultado" + fechaN + equiL;
+                    resNuevo.child(titulopartido).setValue(res);
+
+                    ///Añadir en clasificacion
+                    final DatabaseReference resNuevo2 =
+                            FirebaseDatabase.getInstance().getReference().child("Liga")
+                                    .child("Clasificacion");
 
 
-                ClasificacionObjeto equipo1= new ClasificacionObjeto(res.getEquipoLocal(),5L,5L,5L,5L,5L);
-                ClasificacionObjeto equipo2= new ClasificacionObjeto(res.getEquipoVisitante(),1L,0L,0L,0L,0L);
-                resNuevo2.child(res.getEquipoLocal()).setValue(equipo1);
-              //  resNuevo2.child(res.getEquipoVisitante()).setValue(equipo1);
-                resNuevo2.child(res.getEquipoVisitante()).setValue(equipo2);
+
+
+                    ///////////////////Pruebas pruebas actualizar comprobacion existen
+                    final DatabaseReference resNuevo3 =
+                            FirebaseDatabase.getInstance().getReference().child("Liga")
+                                    .child("Clasificacion").child(equiL);
+
+                    DatabaseReference resNuevo4 =
+                            FirebaseDatabase.getInstance().getReference().child("Liga")
+                                    .child("Clasificacion").child(equiV);
+
+                    final ChildEventListener childEventListener = new ChildEventListener() {
+                        @Override
+                        public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                            ClasificacionObjeto equipoStored = dataSnapshot.getValue(ClasificacionObjeto.class);
+
+                            if (equipoStored == null) {
+
+
+                                //Si que existe, actualizamos los datos
+                            } else {
+                                // Identificamos si es local o visitante
+                                // Actualizamos los datos de equipoStored con los que han llegado por parametro
+                                equipoStored.setPJ(equipoStored.getPJ() + 1);
+                                equipoStored.setPuntos(equipoStored.getPuntos());
+                                equipoStored.setPG(equipoStored.getPG());
+                                equipoStored.setPE(equipoStored.getPE());
+                                equipoStored.setPP(equipoStored.getPP());
+
+                                //Ha entrado el equipo local
+                                if (equipoStored.getnombre().equals(equiL)) {
+                                    if (golesLocal > golesVisitante) {
+                                        equipoStored.setPuntos(equipoStored.getPuntos()+3);
+                                        equipoStored.setPG(equipoStored.getPG()+1);
+                                    } else if (golesLocal.equals(golesVisitante)) {
+                                        equipoStored.setPuntos(equipoStored.getPuntos()+1);
+                                        equipoStored.setPE(equipoStored.getPE()+1);
+                                    } else {
+                                        equipoStored.setPP(equipoStored.getPP() + 1);
+                                    }
+                                       resNuevo2.child(equiL).setValue(equipoStored);
+
+                                    //Ha entrado equipo visitante
+                                } else if (equipoStored.getnombre().equals(equiV)) {
+                                    if (golesLocal < golesVisitante) {
+                                        equipoStored.setPuntos(equipoStored.getPuntos()+3);
+                                        equipoStored.setPG(equipoStored.getPG()+1);
+                                    } else if (golesLocal.equals(golesVisitante)) {
+                                        equipoStored.setPuntos(equipoStored.getPuntos()+1);
+                                        equipoStored.setPE(equipoStored.getPE()+1);
+                                    } else {
+                                        equipoStored.setPP(equipoStored.getPP() + 1);
+                                    }
+                                    resNuevo2.child(equiV).setValue(equipoStored);
+                                } else {
+                                    Log.e("Error", "equipos no coinciden");
+                                }
+
+                            }
+                            Toast.makeText(getApplicationContext(),
+                                    R.string.datossinerror, Toast.LENGTH_LONG).show();
+                            return;
+
+                        }
+
+                        @Override
+                       public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+                        }
+
+                        @Override
+                        public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+                        }
+
+                        @Override
+                        public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    };
+///////llamada al listene con la los dos equipos para ver si existen
+                    ChildEventListener exis=  resNuevo2.orderByKey().equalTo(equiL).addChildEventListener(childEventListener);
+                    ChildEventListener exis2=      resNuevo2.orderByKey().equalTo(equiV).addChildEventListener(childEventListener);
+//si no existen
+                if(!exis.equals(null) && !exis2.equals(null)) {
+
+                    //no existen
+                    puntosL = 0;
+                    puntosV = 0;
+                    pgl = 0;
+                    pgv = 0;
+                    pel = 0;
+                    pev = 0;
+                    ppl = 0;
+                    ppv = 0;
+                    pjl = 0;
+                    pjv = 0;
+
+
+                    ClasificacionObjeto equipo1 = new ClasificacionObjeto(equiL, puntosL, pjl, pgl, pel, ppl);
+                    ClasificacionObjeto equipo2 = new ClasificacionObjeto(equiV, puntosV, pjv, pgv, pev, ppv);
+                    resNuevo3.setValue(equipo1);
+                    resNuevo4.setValue(equipo2);
+
+                }
+
+
+
+
+
+
+                }
+
 
             }
+
+
         });
-        buttonNP = (Button)findViewById(R.id.button3);
+
+
+        buttonNP = (Button) findViewById(R.id.button3);
         //Implementamos el evento click del botón
         buttonNP.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,4 +241,46 @@ private Button buttonNP, buttonGuardar;
             }
         });
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menulateral, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+
+        switch (item.getItemId()) {
+
+            case R.id.menu_seccion_1:
+                Intent intent =
+                        new Intent(NuevoPartido.this, clasificacionFB.class);
+                //Iniciamos la nueva actividad
+                startActivity(intent);
+                break;
+            case R.id.menu_seccion_2:
+                Intent intent2 =
+                        new Intent(NuevoPartido.this, resultadosFB.class);
+                //Iniciamos la nueva actividad
+                startActivity(intent2);
+                break;
+            case R.id.menu_seccion_3:
+                Intent intent3 =
+                        new Intent(NuevoPartido.this, goleadoresFB.class);
+                //Iniciamos la nueva actividad
+                startActivity(intent3);
+                break;
+
+
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
 }
+

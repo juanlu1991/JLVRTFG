@@ -8,18 +8,6 @@
     android:fitsSystemWindows="true"
     tools:context="com.jlvr.juanluis.tfg_championshipleague.MenuLateral">
 
-    <android.support.design.widget.NavigationView
-        android:id="@+id/navview"
-        android:layout_width="wrap_content"
-        android:layout_height="495dp"
-        android:fitsSystemWindows="true"
-        android:layout_gravity="start"
-        app:headerLayout="@layout/activity_navegacion_lateral"
-        app:menu="@menu/menulateral"
-        tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="0dp"/>
-
-
 
     <ScrollView
         android:layout_width="match_parent"
@@ -92,27 +80,6 @@
 
             //////////////////////////////////////////////////////////////
 
-            <Button
-                android:id="@+id/boton0"
-                android:layout_width="137dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="30dp"
-                android:background="#942b2b2b"
-                android:text="@string/title_activity_prueba_firebase"
-                android:textColor="#ffffffff"
-                />
-            <Button
-                android:id="@+id/boton9"
-                android:layout_width="137dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="30dp"
-                android:background="#942b2b2b"
-                android:text="@string/title_activity_prueba_firebase"
-                android:textColor="#ffffffff"
-                />
-
 
             <Button
                 android:id="@+id/boton1"
@@ -161,7 +128,7 @@
                 android:background="#942b2b2b"
                 android:text="@string/Ayuda"
                 android:textColor="#ffffffff"
-                android:visibility="gone"/>
+                android:visibility="visible"/>
 
 
         </LinearLayout>

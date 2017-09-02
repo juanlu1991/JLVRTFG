@@ -5,124 +5,85 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 import com.jlvr.juanluis.tfg_championshipleague.GoleadoresFireBase.goleadoresFB;
 import com.jlvr.juanluis.tfg_championshipleague.R;
 import com.jlvr.juanluis.tfg_championshipleague.ResultadosFireBase.resultadosFB;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class clasificacionFB extends AppCompatActivity {
 
-    private static final String TAGLOG = "firebase-db";
+    private  final String TAGLOG = "firebase-db";
     private RecyclerView lstClasificacion;
     FirebaseRecyclerAdapter adaptadorClasificacion;
-
-    private List<String> ID = new ArrayList<>();
     private Button buttonOrdenarC;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clasificacionfb);
-     //  ID.addAll(buscaID());
-       // Log.i(String.valueOf(ID),"holaaaa");
-/*
-        //////////////////Saber el ID de la tabla y añadirlo a lista:
-        DatabaseReference dbResultados2 =
-                FirebaseDatabase.getInstance().getReference().child("Liga")
-                        .child("Clasificacion");
-        dbResultados2.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
 
-                List<String> s = new ArrayList<String>();
-                for (DataSnapshot objSnapshot: dataSnapshot.getChildren()) {
-                    Object obj = objSnapshot.getKey();
-                    s.add(String.valueOf((obj)));
-                    Log.i(String.valueOf(obj),"<----------------------WEEEE");
-
-                }
-                Log.i(String.valueOf(s),"<----------------------2222222");
-                Log.i(String.valueOf(s.get(1)),"<----------------------33333");
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-////////////////////////////////////////////////////////////////////////////////////////
-*/
-
-        //Log.i(ID.get(0),">>>>>>>>>3");
 
         //Referencias a db:
+        Query dbclasifcacion =
+                FirebaseDatabase.getInstance().getReference()
+                        .child("Liga").child("Clasificacion").orderByChild("puntos");
 
-
-        DatabaseReference dbclasifcacion =
-                FirebaseDatabase.getInstance().getReference().child("Liga")
-                        .child("Clasificacion");
-
-        final RecyclerView recycler = (RecyclerView) findViewById(R.id.lstClasificacion);
+         RecyclerView recycler = (RecyclerView) findViewById(R.id.lstClasificacion);
         recycler.setHasFixedSize(true);
         recycler.setLayoutManager(new LinearLayoutManager(this));
         adaptadorClasificacion =
                 new FirebaseRecyclerAdapter<ClasificacionObjeto, ClasificacionHolder>(
                         ClasificacionObjeto.class, R.layout.activity_lista__clasificacion, ClasificacionHolder.class, dbclasifcacion) {
 
+
                     @Override
                     public void populateViewHolder(ClasificacionHolder resViewHolder, ClasificacionObjeto res, int position) {
 
-                        resViewHolder.setnombre(res.getnombre());
-                        resViewHolder.setPuntos(res.getPuntos());
-                        resViewHolder.setPartidosJugados(res.getPJ());
-                        resViewHolder.setPG(res.getPG());
-                        resViewHolder.setPE(res.getPE());
-                        resViewHolder.setPP(res.getPP());
+                        resViewHolder.setnombre(res.getnombre()+" :");
+                        resViewHolder.setPuntos(res.getPuntos()+".");
+                        resViewHolder.setPartidosJugados(res.getPJ()+".");
+                        resViewHolder.setPG(res.getPG()+".");
+                        resViewHolder.setPE(res.getPE()+".");
+                        resViewHolder.setPP(res.getPP()+".");
 
                     }
                 };
-      /*  LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+
+        final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setReverseLayout(true);
         layoutManager.setStackFromEnd(true);
         recycler.setLayoutManager(layoutManager);
-       // recycler2.setAdapter(mAdapter3);*/
         recycler.setAdapter(adaptadorClasificacion);
+
+        //  recycler.notifyAll();
 
         //botonOrdenar
         buttonOrdenarC = (Button)findViewById(R.id.buttonOrdenarC);
         //Implementamos el evento click del botón
-        final RecyclerView recyclerO = (RecyclerView) findViewById(R.id.lstClasificacion);
-        recyclerO.setHasFixedSize(true);
-        recyclerO.setLayoutManager(new LinearLayoutManager(this));
-        final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        layoutManager.setReverseLayout(true);
-        layoutManager.setStackFromEnd(true);
+
         buttonOrdenarC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Query consultaOrdenaC =
+
+                Intent intent =
+                        new Intent(clasificacionFB.this, clasificacionFB.class);
+                //Iniciamos la nueva actividad
+                startActivity(intent);
+
+
+                /*   Query consultaOrdenaC =
                         FirebaseDatabase.getInstance().getReference()
                                 .child("Liga").child("Clasificacion")
-                                .orderByChild("Puntos");
-              //  List<Query> lista = new ArrayList();
-             //   lista.addAll( consultaOrdenaC.o);
-
-               //Log.i(String.valueOf(lista),"consultaaaa");//<----------------------------------------
+                                .orderByChild("puntos");
+                RecyclerView recyclerO = (RecyclerView) findViewById(R.id.lstClasificacion);
 
                 FirebaseRecyclerAdapter mAdapter3;
                 mAdapter3 =
@@ -131,19 +92,18 @@ public class clasificacionFB extends AppCompatActivity {
 
                             @Override
                             public void populateViewHolder(ClasificacionHolder resViewHolder, ClasificacionObjeto res, int position) {
-                                resViewHolder.setnombre(res.getnombre());
-                                resViewHolder.setPuntos(res.getPuntos());
-                                resViewHolder.setPartidosJugados(res.getPJ());
-                                resViewHolder.setPG(res.getPG());
-                                resViewHolder.setPE(res.getPE());
-                                resViewHolder.setPP(res.getPP());
+                                resViewHolder.setnombre(res.getnombre()+" :");
+                                resViewHolder.setPuntos(res.getPuntos()+".");
+                                resViewHolder.setPartidosJugados(res.getPJ()+".");
+                                resViewHolder.setPG(res.getPG()+".");
+                                resViewHolder.setPE(res.getPE()+".");
+                                resViewHolder.setPP(res.getPP()+".");
 
                             }
                         };
 
-                recyclerO.setLayoutManager(layoutManager);
-                recyclerO.setAdapter(mAdapter3);
-                ///Log.i(mAdapter3.toString(),"<---------------------adapter");
+
+                recyclerO.setAdapter(mAdapter3);*/
             }
 
 
@@ -154,33 +114,11 @@ public class clasificacionFB extends AppCompatActivity {
     }
 
 
-    private List<String> buscaID(){
-
-        final List<String> id = new ArrayList<String>();
-        //localizar nombre equipos:
-        DatabaseReference dbResultados2 =
-                FirebaseDatabase.getInstance().getReference().child("Liga")
-                        .child("Clasificacion");
-        dbResultados2.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot objSnapshot: dataSnapshot.getChildren()) {                                    Object obj = objSnapshot.getKey();
-                    id.add(String.valueOf((obj)));
-                   // Log.i(String.valueOf(obj),"<----------------------WEEEE");
-                }
-                //Log.i(String.valueOf(id),"<----------------------2222222");
-                Log.i(String.valueOf(id.get(1)),"<----------------------1");                            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-        Log.i(String.valueOf(id),"<----------------------2222222");
-
-        return id;
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        adaptadorClasificacion.cleanup();
     }
-
 
 
     @Override

@@ -1,103 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
+    android:id="@+id/onenedor"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="120dp"
+    android:layout_height="match_parent"
+    android:layout_marginTop="60dp"
     android:background="@android:color/holo_green_dark"
+    android:visibility="visible"
     tools:context="com.jlvr.juanluis.tfg_championshipleague.ClasficacionFireBase.lista_Clasificacion">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="330dp"
-        android:layout_height="79dp"
-        android:text="@string/clasificacion"
-        android:textColor="@android:color/background_light"
-        android:textSize="30sp"
-        tools:layout_editor_absoluteX="4dp"
-        tools:layout_editor_absoluteY="341dp"
-        tools:ignore="MissingConstraints"/>
 
-
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/listado"
-        android:layout_width="373dp"
+        android:layout_width="392dp"
         android:layout_height="146dp"
         android:background="@android:color/holo_red_dark"
         android:orientation="horizontal"
+        android:scrollbars="vertical"
         android:weightSum="1"
-        tools:layout_editor_absoluteX="-5dp"
-        tools:layout_editor_absoluteY="27dp"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-6dp"
+        tools:layout_editor_absoluteY="40dp">
 
         <TextView
             android:id="@+id/equipoC"
-            android:layout_width="38dp"
-            android:layout_height="match_parent"
+            android:layout_width="158dp"
+            android:layout_height="91dp"
+            android:layout_alignBottom="@+id/partidosG"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/partidosE"
-            android:layout_weight="0.76"
             android:textColor="#000000"
             android:textSize="24sp"
             android:textStyle="bold"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="158dp"/>
+            tools:ignore="MissingConstraints"/>
 
         <TextView
             android:id="@+id/puntosT"
             android:layout_width="34dp"
             android:layout_height="87dp"
-            android:layout_toEndOf="@+id/partidosP"
+            android:layout_alignBaseline="@+id/equipoC"
+            android:layout_alignBottom="@+id/equipoC"
+            android:layout_toEndOf="@+id/equipoC"
+            android:layout_weight="0.23"
             android:textColor="#ffffffff"
-            android:textSize="24sp"
-            tools:layout_editor_absoluteX="104dp"
-            tools:layout_editor_absoluteY="158dp"
-            android:layout_weight="0.23"/>
+            android:textSize="24sp"/>
 
         <TextView
             android:id="@+id/partidosG"
             android:layout_width="29dp"
             android:layout_height="95dp"
-            android:layout_centerVertical="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="22dp"
+            android:layout_toEndOf="@+id/puntosT"
+            android:layout_weight="0.02"
             android:textColor="#ffffffff"
-            android:textSize="24sp"
-            tools:layout_editor_absoluteX="157dp"
-            tools:layout_editor_absoluteY="158dp"
-            android:layout_weight="0.02"/>
+            android:textSize="24sp"/>
 
         <TextView
             android:id="@+id/partidosE"
             android:layout_width="31dp"
             android:layout_height="96dp"
-            android:layout_alignParentStart="true"
+            android:layout_alignBaseline="@+id/partidosP"
+            android:layout_alignBottom="@+id/partidosP"
+            android:layout_toEndOf="@+id/partidosG"
             android:textColor="#ffffffff"
-            android:textSize="24sp"
-            tools:layout_editor_absoluteX="209dp"
-            tools:layout_editor_absoluteY="158dp"
-            />
+            android:textSize="24sp"/>
 
         <TextView
             android:id="@+id/partidosP"
             android:layout_width="33dp"
             android:layout_height="109dp"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/partidosE"
+            android:layout_weight="0.05"
             android:textColor="#ffffffff"
-            android:textSize="24sp"
-            tools:layout_editor_absoluteX="264dp"
-            tools:layout_editor_absoluteY="158dp"
-            android:layout_weight="0.05"/>
+            android:textSize="24sp"/>
 
         <TextView
             android:id="@+id/partidosJ"
-            android:layout_width="69dp"
-            android:layout_height="73dp"
-            android:textSize="24sp"
-            tools:layout_editor_absoluteX="319dp"
-            tools:layout_editor_absoluteY="158dp"
-            />
-    </LinearLayout>
+            android:layout_width="33dp"
+            android:layout_height="110dp"
+            android:layout_alignBottom="@+id/partidosP"
+            android:layout_toEndOf="@+id/partidosP"
+            android:textSize="24sp"/>
+    </RelativeLayout>
 
 
 </android.support.constraint.ConstraintLayout>

@@ -28,7 +28,6 @@ public class resultadosFB extends AppCompatActivity {
 
         FirebaseRecyclerAdapter mAdapter;
 
-
     private Button buttonOrdenar,buttonAnyadir,buttonEliminar;
 
     @Override
@@ -72,7 +71,7 @@ public class resultadosFB extends AppCompatActivity {
                 Query consultaOrdena =
                         FirebaseDatabase.getInstance().getReference()
                                 .child("Liga").child("Resultados")
-                                .orderByChild("Fecha");
+                                .orderByChild("fecha");
                 RecyclerView recyclerO = (RecyclerView) findViewById(R.id.lstResultados);
                 FirebaseRecyclerAdapter mAdapter2;
                 mAdapter2 =
@@ -107,31 +106,12 @@ public class resultadosFB extends AppCompatActivity {
                     //Iniciamos la nueva actividad
                     startActivity(intent);
 
-                //Añadir partido nuevo
-          /*      ResultadoFB res =
-                        new ResultadoFB("NY city",3L, "Miami", 29L, "31/3/2002");
 
-                DatabaseReference resNuevo =
-                        FirebaseDatabase.getInstance().getReference().child("Liga")
-                                .child("Resultados");
-                resNuevo.child("partido5").setValue(res);
-                ////
-                ///Añadir en clasificacion
-                DatabaseReference resNuevo2 =
-                        FirebaseDatabase.getInstance().getReference().child("Liga")
-                                .child("Clasificacion");
-
-
-                ClasificacionObjeto equipo1= new ClasificacionObjeto(res.getEquipoLocal(),5L,5L,5L,5L,5L);
-                ClasificacionObjeto equipo2= new ClasificacionObjeto(res.getEquipoVisitante(),1L,0L,0L,0L,0L);
-                resNuevo2.child(res.getEquipoLocal()).setValue(equipo1);
-              //  resNuevo2.child(res.getEquipoVisitante()).setValue(equipo1);
-                resNuevo2.child(res.getEquipoVisitante()).setValue(equipo2);
-*/
             }
         });
 
-        //botonOAnyadi
+        //botonEliminar
+        /*
         buttonEliminar = (Button)findViewById(R.id.buttonEliminar);
         //Implementamos el evento click del botón
         buttonEliminar.setOnClickListener(new View.OnClickListener() {
@@ -143,7 +123,7 @@ public class resultadosFB extends AppCompatActivity {
                                 .child("Resultados");
                 resNuevo.child("partido5").removeValue();
             }
-        });
+        });*/
 
     }
 

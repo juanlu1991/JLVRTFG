@@ -15,8 +15,8 @@
     <string name="equipo">Gestion de Equipo</string>
     <string name="resultados">Resultados</string>
     <string name="jornada">Nueva Jornada</string>
-    <string name="seleccionJornada">Seleccione Jornada</string>
-    <string name="seleccionEquipo">Seleccione Equipo</string>
+    <string name="seleccionJornada" translatable="false">Seleccione Jornada</string>
+    <string name="seleccionEquipo" translatable="false">Seleccione Equipo</string>
 
     <string name="str_buttonIdioma">Cambiar Idioma</string>
     <string name="gestionLiga">Gestion de Liga</string>
@@ -29,10 +29,10 @@
 
     <string name="anyadir">Agregar</string>
     <string name="eliminar">Eliminar</string>
-    <string name="trayectoria">Trayectoria de Equipos</string>
+    <string name="trayectoria" translatable="false">Trayectoria de Equipos</string>
 
     <string name="action_settings">Creado por JLVR</string>
-    <string name="action_settings1">  </string>
+    <string name="action_settings1">Guardar</string>
 
     <string name="equipo_crear">Ascender Equipo </string>
     <string name="equipo_eliminar">Descender Equipo </string>
@@ -44,95 +44,98 @@
 
     <string name="actualizar">Actualizar</string>
     <string name="ciudad">Ciudad</string>
-    <string name="menu_eliminar">Eliminar</string>
-    <string name="resultados_crear_confirmacion">Resultados de la jornada anyadidos</string>
+    <string name="menu_eliminar" translatable="false">Eliminar</string>
+    <string name="resultados_crear_confirmacion" translatable="false">Resultados de la jornada anyadidos</string>
 
 
     <string name="Ayuda"> Ayuda de uso</string>
-    <string name="ayuda1">Seleccione "Gestion de liga"
-    para acceder a información de equipos y ascender o descender equipos de categoria</string>
-    <string name="ayuda2">Seleccione "Resultados"
-    para acceder a información de los resultados de la jornada de cada equipos
-     y anyadir nuevos resultados</string>
-    <string name="ayuda3">Seleccione "Clasificacion"
-    para acceder a información de equipos en la liga</string>
-    <string name="ayuda4">Para introducir resultados de nueva jornada
-     Introzuca: Equipo Local, goles local, EquipoVistante, goles viditante</string>
+    <string name="ayuda1">Para Iniciar sesion y acceder a todas las opciones de la app,debe loguearse con su cuenta de google</string>
+    <string name="ayuda2">Una vez loguedo correctamente, Desde la pantalla resultados puedes llevar el seguimiento de los partidos disputados y añadir nuevos partidos </string>
+    <string name="ayuda4">Desde el apartado clasificación se mostrará la clasificación con los puntos en base a los resultados añadidos</string>
+    <string name="ayuda3">Un tercer apartado es el de goleadores donde se muestra un listado con los goleadores del campeonato así como opciones para añadir nuevos goleadores.</string>
     <string name="volver">Atras</string>
 
-    <string name="resultado_eliminar_titulo">Eliminar Jornada</string>
-    <string name="resultado_eliminar_mensaje">¿Seguro que desea eliminar la Jornada?</string>
-    <string name="resultado_eliminar_confirmacion">Jornada eliminada</string>
+    <string name="resultado_eliminar_titulo" translatable="false">Eliminar Jornada</string>
+    <string name="resultado_eliminar_mensaje" translatable="false">¿Seguro que desea eliminar la Jornada?</string>
+    <string name="resultado_eliminar_confirmacion" translatable="false">Jornada eliminada</string>
 
     <string name="equipo_eliminar_titulo">Descender Equipo</string>
-    <string name="equipo_eliminar_mensaje">¿Seguro que desea descender el equipo de Categoría?</string>
+    <string name="equipo_eliminar_mensaje" translatable="false">¿Seguro que desea descender el equipo de Categoría?</string>
     <string name="equipo_eliminar_confirmacion">Equipo Descendido</string>
 
     <string name="title_activity_clasificacion">Clasificacion</string>
 
-    <string name="hello_world">Hello world!</string>
+    <string name="hello_world" translatable="false">Hello world!</string>
     <string name="title_activity_resultados">Resultados</string>
-    <string name="title_activity_gestion_liga">Gestion de Liga</string>
-    <string name="title_activity_gestion_equipo">Informacion de Equipos</string>
+    <string name="title_activity_gestion_liga" translatable="false">Gestion de Liga</string>
+    <string name="title_activity_gestion_equipo" translatable="false">Informacion de Equipos</string>
     <string name="title_activity_anyadir_equipo">Anyadir Equipo</string>
-    <string name="title_activity_eliminar_equipo">Eliminar Equipo</string>
-    <string name="title_activity_nuevos_resutados">Nuevos Resutados</string>
-    <string name="title_activity_trayectoria_equipo">Trayectoria Equipo</string>
-    <string name="title_activity_clasificacion_formulario">Clasificacion Formulario</string>
+    <string name="title_activity_eliminar_equipo" translatable="false">Eliminar Equipo</string>
+    <string name="title_activity_nuevos_resutados" translatable="false">Nuevos Resutados</string>
+    <string name="title_activity_trayectoria_equipo" translatable="false">Trayectoria Equipo</string>
+    <string name="title_activity_clasificacion_formulario" translatable="false">Clasificacion Formulario</string>
 
     //formulario a modificar
     <string name="label_equipo">Equipo:</string>
-    <string name="label_partidos">Partidos Jugados:</string>
-    <string name="label_puntos">Puntos:</string>
-    <string name="label_ganados">Partidos Ganados:</string>
-    <string name="label_empatados">Partidos Empatados:</string>
-    <string name="label_perdidos">Partidos Perdidos:</string>
-    <string name="label_gFavor">Goles a Favor:</string>
-    <string name="label_gContra">Goles en Contra:</string>
-    <string name="title_activity_formulario_resultados">FormularioResultados</string>
-    <string name="title_activity_resultados_forularios">ResultadosForularios</string>
+    <string name="label_partidos" translatable="false">Partidos Jugados:</string>
+    <string name="label_puntos" translatable="false">Puntos:</string>
+    <string name="label_ganados" translatable="false">Partidos Ganados:</string>
+    <string name="label_empatados" translatable="false">Partidos Empatados:</string>
+    <string name="label_perdidos" translatable="false">Partidos Perdidos:</string>
+    <string name="label_gFavor" translatable="false">Goles a Favor:</string>
+    <string name="label_gContra" translatable="false">Goles en Contra:</string>
+    <string name="title_activity_formulario_resultados" translatable="false">FormularioResultados</string>
+    <string name="title_activity_resultados_forularios" translatable="false">ResultadosForularios</string>
 
 
     //formulario resultados
-    <string name="label_jornada">Jornada:</string>
-    <string name="label_partido1">Partido 1:</string>
-    <string name="label_partido2">Partido 2:</string>
-    <string name="label_partido3">Partido 3:</string>
-    <string name="label_partido4">Partido 4:</string>
-    <string name="label_partido5">Partido 5:</string>
+    <string name="label_jornada" translatable="false">Jornada:</string>
+    <string name="label_partido1" translatable="false">Partido 1:</string>
+    <string name="label_partido2" translatable="false">Partido 2:</string>
+    <string name="label_partido3" translatable="false">Partido 3:</string>
+    <string name="label_partido4" translatable="false">Partido 4:</string>
+    <string name="label_partido5" translatable="false">Partido 5:</string>
     <string name="jornadas">Seleccione Jornada:</string>
 
 
     <string name="infoEquipo">Informacion de Equipos</string>
     <string name="title_activity_equipos">Equipos</string>
-    <string name="title_activity_equipos_formularios">EquiposFormularios</string>
+    <string name="title_activity_equipos_formularios" translatable="false">EquiposFormularios</string>
 
-    <string name="titulares">Jugadores Titulares</string>
-    <string name="suplentes">Jugadores Suplentes</string>
+    <string name="titulares" translatable="false">Jugadores Titulares</string>
+    <string name="suplentes" translatable="false">Jugadores Suplentes</string>
     <string name="title_activity_ayuda">Ayuda</string>
-    <string name="title_activity_login">Login</string>
+    <string name="title_activity_login" translatable="false">Login</string>
 
 
     //LOGIN
     <string name="sign_out">Desconectar</string>
     <string name="desconectar">desconectar</string>
-    <string name="login">Login</string>
-    <string name="title_activity_prueba">Prueba</string>
-    <string name="title_activity_prueba_firebase">PruebaFirebase</string>
+    <string name="login" translatable="false">Login</string>
+    <string name="title_activity_prueba" translatable="false">Prueba</string>
+    <string name="title_activity_prueba_firebase" translatable="false">PruebaFirebase</string>
 
+
+    <string name="datossinerror1" translatable="false">ok,Ninguno existe</string>
+    <string name="datossinerror2" translatable="false">local si visit no</string>
+    <string name="datossinerror3" translatable="false">local no, visit si</string>
+    <string name="datossinerror4" translatable="false">ambos ok</string>
+
+    <string name="datossinerror">Datos Añadidos correctamente</string>
+    <string name="datosconerror">Datos con formato erroneo, reviselo e intentelo de nuevo</string>
 
     <string name="buttonOrdenar">Ordenar</string>
     <string name="anyadirRes"> Añadir </string>
-    <string name="title_activity_lateral">Lateral</string>
+    <string name="title_activity_lateral" translatable="false">Lateral</string>
 
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="title_activity_navigation">Navigation</string>
-
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+    <string name="title_activity_navigation" translatable="false">Navigation</string>
+    <string name="buttonActualizar"> Actualizar datos </string>
 
     <string name="NuevaLiga"> Añadir Nueva Liga </string>
-    <string name="NuevoPartido"> Añadir Nueva Partido </string>
-    <string name="NuevaFecha"> Añadir Fecha de Partido </string>
+    <string name="NuevoPartido"> Añadir Nuevo Partido </string>
+    <string name="NuevaFecha"> Añadir Jornada </string>
     <string name="NombreNuevaLiga">Introduzca Nombre de Liga</string>
     <string name="equipoLocal">Nombre Equipo Local</string>
     <string name="equipoVist">Nombre Equipo Vist</string>
@@ -143,5 +146,6 @@
     <string name="goleadores">Nuevos Goleadores</string>
     <string name="nombreJG">Nombre Jugador</string>
     <string name="GolesMArcados">Goles en el partido</string>
-    <string name="title_activity_navegacion_lateral">NavegacionLateral</string>
+    <string name="title_activity_navegacion_lateral" translatable="false">NavegacionLateral</string>
+    <string name="Goles">Goles en Competicion</string>
 </resources>

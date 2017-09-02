@@ -6,32 +6,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.jlvr.juanluis.tfg_championshipleague.ResultadosFireBase.resultadosFB"
-    android:background="@android:color/holo_green_dark"   >
+    android:background="@android:color/holo_green_dark"
+    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp">
 
 
-
-    <LinearLayout
-        android:id="@+id/lista"
-        android:layout_width="356dp"
-        android:layout_height="337dp"
-        android:layout_gravity="center_horizontal"
-        android:orientation="horizontal"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="14dp"
-        tools:layout_editor_absoluteY="26dp"
-        android:weightSum="1">
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/lstResultados"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="-141dp"
-            />
-    </LinearLayout>
-
-
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="320dp"
+        android:layout_height="45dp"
+        android:layout_weight="1"
+        android:background="@android:color/holo_red_dark"
+        android:text="@string/resultados"
+        android:textAlignment="center"
+        android:textColor="#ffffffff"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="29dp"/>
 
     <LinearLayout
         android:id="@+id/botones"
@@ -40,30 +32,21 @@
         android:layout_gravity="center_horizontal"
         android:orientation="horizontal"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-6dp"
-        tools:layout_editor_absoluteY="387dp"
-       >
+        tools:layout_editor_absoluteX="5dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/lista">
 
         <LinearLayout
             android:id="@+id/texto"
             android:layout_width="103dp"
             android:layout_height="match_parent"
+            android:layout_below="@id/lista"
             android:layout_gravity="center_horizontal"
             android:orientation="horizontal"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="150dp"
-            tools:layout_editor_absoluteY="16dp"
-            android:layout_below="@id/lista">
+            tools:layout_editor_absoluteY="16dp">
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="320dp"
-                android:layout_height="45dp"
-                android:layout_weight="1"
-                android:text="@string/resultados"
-                android:textColor="@android:color/holo_red_dark"
-                tools:layout_editor_absoluteX="37dp"
-                tools:layout_editor_absoluteY="7dp"/>
         </LinearLayout>
 
         <Button
@@ -87,13 +70,36 @@
             tools:ignore="MissingConstraints"
             />
 
-        <Button
-            android:id="@+id/buttonEliminar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/eliminar"
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lista"
+        android:layout_width="356dp"
+        android:layout_height="337dp"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        android:weightSum="1"
+        app:layout_constraintTop_toTopOf="@+id/guideline4"
+        android:layout_marginTop="8dp">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/lstResultados"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="-141dp"
             />
     </LinearLayout>
+
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/guideline4"
+        app:layout_constraintGuide_begin="74dp"
+        android:orientation="horizontal"/>
+
+
 </android.support.constraint.ConstraintLayout>

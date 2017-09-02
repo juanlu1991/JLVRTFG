@@ -7,25 +7,27 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.jlvr.juanluis.tfg_championshipleague.ClasficacionFireBase.clasificacionFB;
+import com.jlvr.juanluis.tfg_championshipleague.NuevoGoleador;
 import com.jlvr.juanluis.tfg_championshipleague.R;
 import com.jlvr.juanluis.tfg_championshipleague.ResultadosFireBase.resultadosFB;
 
 public class goleadoresFB extends AppCompatActivity {
     private static final String TAGLOG = "firebase-db";
-
     private RecyclerView lstGoleadoes;
-
+    private Button bngoleador;
     FirebaseRecyclerAdapter mAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_goleadores_fb);
-
 
         //Referencias a db:
         Query consultaGoleadores =
@@ -46,12 +48,28 @@ public class goleadoresFB extends AppCompatActivity {
                         resViewHolder.setgoles(res.getgoles());
                     }
                 };
-        final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        layoutManager.setReverseLayout(true);
-        layoutManager.setStackFromEnd(true);
-        recycler.setLayoutManager(layoutManager);
-                recycler.setAdapter(mAdapter);
-    }
+                     final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+                        layoutManager.setReverseLayout(true);
+                        layoutManager.setStackFromEnd(true);
+                        recycler.setLayoutManager(layoutManager);
+                        recycler.setAdapter(mAdapter);
+
+
+        //botonOAnyadi
+        bngoleador = (Button)findViewById(R.id.bng);
+        //Implementamos el evento click del botón
+        bngoleador.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Creamos el Intent
+                Intent intent =
+                        new Intent(goleadoresFB.this, NuevoGoleador.class);
+                //Iniciamos la nueva actividad
+                startActivity(intent);
+            }
+        });//fin button goleador
+
+    }//fin oncreate
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

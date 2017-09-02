@@ -36,6 +36,8 @@ public class ResultadoFB {
 
 
 
+
+
     public Long getGolesVisitante() {
         return GolesVisitante;
     }

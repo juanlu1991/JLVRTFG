@@ -12,41 +12,42 @@ import com.jlvr.juanluis.tfg_championshipleague.R;
 
 public class ClasificacionHolder extends RecyclerView.ViewHolder {
 
-    private static View mView;
+    private  View mViewc;
 
     public ClasificacionHolder(View itemView) {
         super(itemView);
-        mView = itemView;
+        mViewc = itemView;
+
     }
 
     public  void setnombre(String equipo) {
-        TextView field = (TextView) mView.findViewById(R.id.equipoC);
+        TextView field = (TextView) mViewc.findViewById(R.id.equipoC);
         field.setText(equipo);
     }
 
-    public void setPuntos(Long puntos) {
-        TextView field = (TextView) mView.findViewById(R.id.puntosT);
-        field.setText(String.valueOf(puntos));
+    public void setPuntos(String puntos) {
+        TextView field = (TextView) mViewc.findViewById(R.id.puntosT);
+        field.setText((puntos));
     }
 
-    public void setPartidosJugados(Long partidos) {
-        TextView field = (TextView) mView.findViewById(R.id.partidosJ);
-        field.setText(String.valueOf(partidos));
+    public void setPartidosJugados(String partidos) {
+        TextView field = (TextView) mViewc.findViewById(R.id.partidosJ);
+        field.setText((partidos));
     }
 
-    public void setPG(Long ganados) {
-        TextView field = (TextView) mView.findViewById(R.id.partidosG);
-        field.setText(String.valueOf(ganados));
+    public void setPG(String ganados) {
+        TextView field = (TextView) mViewc.findViewById(R.id.partidosG);
+        field.setText((ganados));
     }
 
-    public void setPE(Long empatados) {
-        TextView field = (TextView) mView.findViewById(R.id.partidosE);
-        field.setText(String.valueOf(empatados));
+    public void setPE(String empatados) {
+        TextView field = (TextView) mViewc.findViewById(R.id.partidosE);
+        field.setText((empatados));
     }
 
-    public void setPP(Long perdidos) {
-        TextView field = (TextView) mView.findViewById(R.id.partidosP);
-        field.setText(String.valueOf(perdidos));
+    public void setPP(String perdidos) {
+        TextView field = (TextView) mViewc.findViewById(R.id.partidosP);
+        field.setText((perdidos));
     }
 
 

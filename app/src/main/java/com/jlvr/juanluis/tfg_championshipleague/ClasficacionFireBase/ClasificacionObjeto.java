@@ -6,11 +6,11 @@ package com.jlvr.juanluis.tfg_championshipleague.ClasficacionFireBase;
 
 public class ClasificacionObjeto {
 
-    private Long Puntos,PJ,PG,PE,PP;
+    private Integer Puntos,PJ,PG,PE,PP;
     private String nombre;
     public ClasificacionObjeto(){}
 
-    public ClasificacionObjeto(String Equipo,Long Puntos,Long jugados,Long ganados,Long empate, Long perdido){
+    public ClasificacionObjeto(String Equipo,Integer Puntos,Integer jugados,Integer ganados,Integer empate, Integer perdido){
         this.nombre=Equipo;
         this.Puntos=Puntos;
         this.PJ=jugados;
@@ -19,34 +19,34 @@ public class ClasificacionObjeto {
         this.PP=perdido;
     }
 
-    public Long getPJ() {
+    public Integer getPJ() {
         return PJ;
     }
 
-    public void setPJ(Long jugados) {
+    public void setPJ(Integer jugados) {
         this.PJ = jugados;
     }
 
-    public Long getPG() {
+    public Integer getPG() {
         return PG;
     }
 
-    public void setPG(Long ganados) {
+    public void setPG(Integer ganados) {
         this.PG = ganados;
     }
 
-    public Long getPE() {
+    public Integer getPE() {
         return PE;
     }
 
-    public void setPE(Long empatados) {
+    public void setPE(Integer empatados) {
         this.PE = empatados;
     }
 
-    public Long getPP() {
+    public Integer getPP() {
         return PP;
     }
-    public void setPP(Long perdidos) {
+    public void setPP(Integer perdidos) {
         this.PP = perdidos;
     }
 
@@ -58,11 +58,11 @@ public class ClasificacionObjeto {
         this.nombre = equipo;
     }
 
-    public Long getPuntos() {
+    public Integer getPuntos() {
         return Puntos;
     }
 
-    public void setPuntos(Long puntos) {
+    public void setPuntos(Integer puntos) {
         this.Puntos = puntos;
     }
 

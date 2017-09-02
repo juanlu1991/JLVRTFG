@@ -15,10 +15,11 @@
         android:layout_height="495dp"
         android:fitsSystemWindows="true"
         android:layout_gravity="start"
-        app:headerLayout="@layout/activity_navegacion_lateral"
+        app:headerLayout="@layout/activity_menu_lateral"
         app:menu="@menu/menulateral"
         tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="0dp"/>
+        tools:layout_editor_absoluteX="0dp"
+        tools:ignore="MissingConstraints"/>
 
 
 </android.support.constraint.ConstraintLayout>

@@ -9,11 +9,9 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.internal.ScrimInsetsFrameLayout;
 import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -78,19 +76,20 @@ public class PrincipalActivity extends AppCompatActivity implements GoogleApiCli
         /////////////////////////////////////
         ////////////////////////////////////////
         ////////////////////////
-  /*   //  setContentView(R.layout.activity_menu_lateral);
+     //  setContentView(R.layout.activity_menu_lateral);
         //setContentView(R.layout.activity_contenido);
 
         //appbar = (Toolbar)findViewById(R.id.appbar);
         //setSupportActionBar(appbar);
 
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.side_nav_bar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+      //  getSupportActionBar().setHomeAsUpIndicator(R.drawable.side_nav_bar);
+     //   getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         ////////
         ///////
         //Menu del Navigation Drawer
-
+/*
 
 
        drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
@@ -129,7 +128,7 @@ public class PrincipalActivity extends AppCompatActivity implements GoogleApiCli
                             getSupportActionBar().setTitle(menuItem.getTitle());
                         }
 
-                        drawerLayout.closeDrawers();
+                      //  drawerLayout.closeDrawers();
 
                         return true;
                     }
@@ -181,7 +180,7 @@ public class PrincipalActivity extends AppCompatActivity implements GoogleApiCli
                                 button1.setVisibility(View.GONE);
                                 button2.setVisibility(View.GONE);
                                 button3.setVisibility(View.GONE);
-                                button4.setVisibility(View.GONE);
+                               // button4.setVisibility(View.GONE);
                                 updateUI(false);
                             }
                         });
@@ -197,35 +196,7 @@ public class PrincipalActivity extends AppCompatActivity implements GoogleApiCli
         //PAra un boton primero en xml y segundo en java:
 
 
-        button0 = (Button) findViewById(R.id.boton0);
-        //Implementamos el evento click del botón
-        button0.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Creamos el Intent
 
-
-                Intent intent =
-                        new Intent(PrincipalActivity.this, NuevoTorneo.class);
-                //Iniciamos la nueva actividad
-                startActivity(intent);
-            }
-        });
-
-        button0 = (Button) findViewById(R.id.boton9);
-        //Implementamos el evento click del botón
-        button0.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Creamos el Intent
-
-
-                Intent intent =
-                        new Intent(PrincipalActivity.this, NuevoPartido.class);
-                //Iniciamos la nueva actividad
-                startActivity(intent);
-            }
-        });
 
 
         button1 = (Button) findViewById(R.id.boton1);
@@ -296,7 +267,7 @@ public class PrincipalActivity extends AppCompatActivity implements GoogleApiCli
     }
 
 
-    //////////////////////////////
+    //////////////////////////////  respuesta de conectar con google
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
         Toast.makeText(this, "Error de conexion!", Toast.LENGTH_SHORT).show();
@@ -306,6 +277,7 @@ public class PrincipalActivity extends AppCompatActivity implements GoogleApiCli
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
         if (requestCode == RC_SIGN_IN) {
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
 
@@ -325,7 +297,7 @@ public class PrincipalActivity extends AppCompatActivity implements GoogleApiCli
             updateUI(false);
         }
     }
-
+//hacer visibles cuando conectado
     private void updateUI(boolean signedIn) {
         if (signedIn) {
             btnSignIn.setVisibility(View.GONE);
@@ -336,7 +308,7 @@ public class PrincipalActivity extends AppCompatActivity implements GoogleApiCli
             button1.setVisibility(View.VISIBLE);
             button2.setVisibility(View.VISIBLE);
             button3.setVisibility(View.VISIBLE);
-            button4.setVisibility(View.VISIBLE);
+           // button4.setVisibility(View.VISIBLE);
 
 
         } else {
@@ -345,11 +317,12 @@ public class PrincipalActivity extends AppCompatActivity implements GoogleApiCli
 
             btnSignIn.setVisibility(View.VISIBLE);
             btnSignOut.setVisibility(View.GONE);
+         //   button4.setVisibility(View.VISIBLE);
             // btnRevoke.setVisibility(View.GONE);
 
         }
     }
-
+//contectar a google
     @Override
     protected void onStart() {
         super.onStart();
@@ -387,7 +360,7 @@ public class PrincipalActivity extends AppCompatActivity implements GoogleApiCli
     }
 
 
-    /////////////////////////
+    /////////////////////////mostrar dialogo cambio idioma
 
     private void showDialog() {
         AlertDialog.Builder b = new AlertDialog.Builder(this);
@@ -430,32 +403,6 @@ public class PrincipalActivity extends AppCompatActivity implements GoogleApiCli
            return true;
        }
    */
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                drawerLayout.openDrawer(GravityCompat.START);
-                return true;
-            case R.id.menu_seccion_1:
-                Intent intent =
-                        new Intent(PrincipalActivity.this, clasificacionFB.class);
-                //Iniciamos la nueva actividad
-                startActivity(intent);
-                break;
-            case R.id.menu_seccion_2:
-                Intent intent2 =
-                        new Intent(PrincipalActivity.this, resultadosFB.class);
-                //Iniciamos la nueva actividad
-                startActivity(intent2);
-                break;
 
 
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }
