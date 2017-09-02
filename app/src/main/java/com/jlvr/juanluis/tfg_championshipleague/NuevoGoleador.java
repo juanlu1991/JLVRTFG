@@ -79,6 +79,7 @@ public class NuevoGoleador extends AppCompatActivity {
                                 goleobj.setgoles(goleobj.getgoles()+Long.valueOf(g));
                                 goleobj.setnombre((goleobj.getnombre()));
                                 String nodogoleadoreso = "Goleador"+j;
+
                                 newGole.child(nodogoleadoreso).setValue(goleobj);
 
 
@@ -114,6 +115,7 @@ public class NuevoGoleador extends AppCompatActivity {
                     if(!exis4.equals(null) ) {
                         GoleadoresObject equipo2 = new GoleadoresObject(j, 0L);
 
+                        resNuevo3.setValue(equipo2);
 
                     }
 
