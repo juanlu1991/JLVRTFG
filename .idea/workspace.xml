@@ -11,12 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0536fa0-8092-4e05-973f-a1367fd91bd8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/hamcrest_core_1_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/junit_4_12.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/jlvr/juanluis/tfg_championshipleague/NuevoGoleador.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jlvr/juanluis/tfg_championshipleague/NuevoGoleador.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_goleadores_fb.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_goleadores_fb.xml" />
     </list>
     <ignored path="TFG-ChampionshipLeague.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -2810,7 +2805,14 @@
       <option name="project" value="LOCAL" />
       <updated>1504360081821</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="app funcional,">
+      <created>1504392644243</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1504392644243</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -2905,7 +2907,8 @@
     <MESSAGE value="borrado" />
     <MESSAGE value="cambios funciona añadir dator, hay que conseguir sincronizar&#10;error no muestra lista bien" />
     <MESSAGE value="app funcional, solo falta claves publicas para poder usar app" />
-    <option name="LAST_COMMIT_MESSAGE" value="app funcional, solo falta claves publicas para poder usar app" />
+    <MESSAGE value="app funcional," />
+    <option name="LAST_COMMIT_MESSAGE" value="app funcional," />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
